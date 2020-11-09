@@ -1,0 +1,45 @@
+<ng-container *ngIf="details$ | async as details">
+  <ng-container [ngSwitch]="details.status">
+    <div class="app-details-main-card" *ngSwitchCase="'loading'">
+      Loading...
+    </div>
+
+    <div class="app-details-main-card" *ngSwitchCase="'error'">
+      Something went wrong...
+    </div>
+
+    <div class="app-details-main-card" *ngSwitchDefault>
+      <div class="app-details-card">
+        <span class="app-details-close" [routerLink]="'/'">x</span>
+        <div class="app-details-img-container">
+          <img
+            class="app-details-img"
+            [alt]="details.data.name"
+            [src]="
+              'https://img.pokemondb.net/sprites/black-white/anim/normal/' +
+              details.data.name +
+              '.gif'
+            "
+          />
+        </div>
+        <h2 class="app-details-name">{{ details.data.name }}</h2>
+        <div class="app-details-box">
+          <p><b>ID:</b> {{ details.data.id }}</p>
+          <p class="app-details-plist"><b>Types:</b></p>
+          <ul class="app-details-list">
+            <li *ngFor="let type of details.data.types">
+              {{ type }}
+            </li>
+          </ul>
+          <p><b>Height:</b> {{ details.data.height }}</p>
+          <p class="app-details-plist"><b>Abilities:</b></p>
+          <ul class="app-details-list">
+            <li *ngFor="let ability of details.data.abilities">
+              {{ ability }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

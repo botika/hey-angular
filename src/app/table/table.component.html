@@ -1,0 +1,42 @@
+<div class="app-main">
+  <div class="app-section">
+    <img alt="logo" src="assets/img/pokemon-logo.png" />
+    <h2 class="app-title">Generation 1</h2>
+    <h3 class="app-subtitle">{{ pokemonNumber }} pokemons</h3>
+    <input class="app-input" placeholder="Search" [(ngModel)]="pattern" />
+  </div>
+  <div class="app-section">
+    <div class="app-table">
+      <ng-container *ngIf="generation$ | async as generation">
+        <ng-container [ngSwitch]="generation.status">
+          <div class="app-article" *ngSwitchCase="'loading'">Loading...</div>
+
+          <div class="app-article app-article-warning" *ngSwitchCase="'error'">
+            Error
+          </div>
+
+          <ng-container *ngSwitchDefault>
+            <div
+              class="app-article"
+              *ngFor="let pokemon of generation.data.filter(query)"
+              [routerLink]="'/pokemon/' + pokemon.name"
+            >
+              <div class="app-row-img-container">
+                <img
+                  class="app-row-img"
+                  [alt]="pokemon.name"
+                  [src]="
+                    'https://img.pokemondb.net/sprites/black-white/anim/normal/' +
+                    pokemon.name +
+                    '.gif'
+                  "
+                />
+              </div>
+              <h2 class="app-row-name">{{ pokemon.name }}</h2>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+.app-details-plist {
+  margin-bottom: 0;
+}
+
+.app-details-list {
+  margin: 0;
+}
+
+.app-details-box {
+  margin: 0 5% 2vh 5%;
+  text-align: left;
+}
+
+.app-details-close {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 150%;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+
+  &:hover {
+    color: gray;
+  }
+}
+
+.app-details-name {
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.app-details-img {
+  height: 200px;
+  margin: 25px auto;
+}
+
+.app-details-img-container {
+  text-align: center;
+  height: 250px;
+  width: 100%;
+}
+
+.app-details-main-card {
+  font-size: x-large;
+  display: block;
+  background-color: #f3f0f1;
+  min-height: 85vh;
+  padding-top: 15vh;
+}
+
+.app-details-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 700px;
+  width: 80%;
+  min-width: 400px;
+  background-color: white;
+  border: black;
+}
