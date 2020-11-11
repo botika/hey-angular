@@ -2,11 +2,11 @@
 :host {
   @include reset();
   @include full-screen();
+  @include themify($themes) {
+    background-color: themed("bg");
+    color: themed("color");
+  }
   & > div {
-    @include themify($themes) {
-      background-color: themed("bg");
-      color: themed("color");
-    }
     font-size: x-large;
     display: block;
     min-height: 85vh;
