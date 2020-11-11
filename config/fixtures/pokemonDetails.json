@@ -1,7 +1,7 @@
 {
-  "abilities": [{"ability": {"name": "overgrow"}}],
+  "abilities": [{ "ability": { "name": "overgrow" } }],
   "id": 1,
-  "name":  "bulbasaur",
+  "name": "bulbasaur",
   "types": [{ "type": { "name": "grass" } }, { "type": { "name": "poison" } }],
   "height": 20
 }

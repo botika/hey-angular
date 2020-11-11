@@ -1,11 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400");
 
+@import "app/theme";
 body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100%;
+  @include reset();
+  @include full-screen();
   font-family: "Open Sans", serif;
-  color: #4c4847;
 }

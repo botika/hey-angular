@@ -1,27 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 
-import { RouterModule, Routes } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { TableComponent } from './table/table.component';
-import { DetailsComponent } from './details/details.component';
-
-const routes: Routes = [
-  { path: '', component: TableComponent },
-  { path: 'pokemon/:name', component: DetailsComponent },
-]; // sets up routes constant where you define your routes
+import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent, TableComponent, DetailsComponent],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot(routes),
-  ],
-  providers: [],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, SharedModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,13 @@
+@mixin reset {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin full-screen {
+  width: 100%;
+  height: 100vh;
+}
+
+$color: #4c4847;
+$bg: #f3f0f1;

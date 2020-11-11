@@ -1,0 +1,6 @@
+@import "theme";
+
+:host {
+  @include reset();
+  @include full-screen();
+}

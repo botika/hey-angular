@@ -15,12 +15,12 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-module.exports = (on, config) => {
+module.exports = function (on, config) {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-  on('file:preprocessor', require('./cy-ts-preprocessor'));
+  on("file:preprocessor", require("./cy-ts-preprocessor"));
 
   // enable code coverage collection
-  require('@cypress/code-coverage/task')(on, config)
+  require("@cypress/code-coverage/task")(on, config);
   return config;
 };
