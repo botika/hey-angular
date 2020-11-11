@@ -2,11 +2,13 @@
 :host {
   @include reset();
   @include full-screen();
-  color: $color;
 }
 
 .section {
-  background-color: $bg;
+  @include themify($themes) {
+    background-color: themed("bg");
+    color: themed("color");
+  }
   display: flex;
   justify-content: center;
   align-items: center;
