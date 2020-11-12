@@ -13,25 +13,31 @@ import { map } from 'rxjs/operators';
 export class DetailsComponent implements OnInit {
   name: string;
 
-  details$ = query('details', () =>
-    this.http.get(`https://pokeapi.co/api/v2/pokemon/${this.name}`).pipe(
-      map(
-        (data: any): PokemonDetails => ({
-          id: data.id,
-          name: data.name,
-          height: data.height,
-          types: data.types.map(({ type }) => type.name),
-          abilities: data.abilities.map(({ ability }) => ability.name),
-        })
-      )
-    )
-  );
+  details$;
 
   constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.name = params.get('name');
+      this.details$ = query(
+        `details-${this.name}`,
+        () =>
+          this.http.get(`https://pokeapi.co/api/v2/pokemon/${this.name}`).pipe(
+            map(
+              (data: any): PokemonDetails => ({
+                id: data.id,
+                name: data.name,
+                height: data.height,
+                types: data.types.map(({ type }) => type.name),
+                abilities: data.abilities.map(({ ability }) => ability.name),
+              })
+            )
+          ),
+        {
+          retries: 5,
+        }
+      );
     });
   }
 }
